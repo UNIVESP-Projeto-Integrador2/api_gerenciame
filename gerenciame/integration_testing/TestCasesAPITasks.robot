@@ -14,7 +14,7 @@ Cenário 01: Consulta de tarefas
     Dado que estamos realizando uma request para o endpoint tarefas-get
 #    Quando passarmos um token "<token>"
 #    E preenchermos o header
-    Quando preenchermos o queryParam
+    Quando preenchermos os queryParams "2022-06-19" e "2022-06-20"
     E realizarmos a chamada
     Entao o status da chamada sera "200" 
     E o retorno sera de sucesso
