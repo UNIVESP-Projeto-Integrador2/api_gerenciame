@@ -4,6 +4,7 @@ from rest_framework import viewsets, status
 from rest_framework.decorators import api_view
 from rest_framework.parsers import JSONParser
 
+from .subtarefa_model import Subtarefa
 from .models import Tarefa
 from .serializers import TarefaSerializer
 
@@ -55,13 +56,12 @@ def tarefas_detalhes(request, pk):
         return JsonResponse({'message': 'Essa tarefa nao existe'}, status=status.HTTP_404_NOT_FOUND)
 
 
-# @api_view(['DELETE'])
-# def subtarefas_detalhes(request, pk, fk):
-#     try:
-#         subtarefa = Subtarefa.objects.get(pk=pk, fk=fk)
-#         if request.method == 'DELETE':
-#             subtarefa.delete()
-#             return JsonResponse({'message': 'Subtarefa apagada com sucesso.'}, status=status.HTTP_200_OK)
-#
-#     except Subtarefa.DoesNotExist:
-#         return JsonResponse({'message': 'Essa subtarefa nao existe'}, status=status.HTTP_404_NOT_FOUND)
+@api_view(['DELETE'])
+def subtarefas_detalhes(request, pk, fk):
+    try:
+        subtarefa = subtarefa.objects.get(pk=pk, fk=fk)
+        if request.method == 'DELETE':
+            subtarefa.delete()
+            return JsonResponse({'message': 'Subtarefa apagada com sucesso.'}, status=status.HTTP_200_OK)
+    except subtarefa.DoesNotExist:
+        return JsonResponse({'message': 'Essa subtarefa nao existe'}, status=status.HTTP_404_NOT_FOUND)

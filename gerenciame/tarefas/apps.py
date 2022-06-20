@@ -5,5 +5,5 @@ class TarefasConfig(AppConfig):
     name = 'tarefas'
 
 
-# class SubtarefasConfig(AppConfig):
-#     name = 'subtarefas'
+class SubtarefasConfig(AppConfig):
+    name = 'subtarefas'
